@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Emberwell</title>
+  <link rel="stylesheet" href="css/game.css?v=4" />
+</head>
+<body>
+  <div id="app">
+    <header>
+      <div class="who">
+        <div id="avatar" class="art-pup" role="img"></div>
+        <div>
+          <div class="brand">Ember<span>well</span></div>
+          <div class="floor" id="floor">Floor 1 · slice 4</div>
+        </div>
+      </div>
+      <button class="ghost" id="reset">Reset</button>
+    </header>
+    <div class="hud">
+      <div class="chip rate"><i>Well</i><b id="rate">0/s</b></div>
+      <div class="chip gold" id="goldChip"><i>Gold</i><b id="gold">0</b></div>
+      <div class="chip cinder" id="cinderChip"><i>Cinder</i><b id="cinder">0</b></div>
+      <div class="chip ember" id="emberChip"><i>Embers</i><b id="embersHud">8</b></div>
+    </div>
+    <main></main>
+    <p class="log" id="log">loading</p>
+    <nav>
+      <button class="on" data-tab="well"><b>◎</b>Well</button>
+      <button data-tab="hearth"><b>⚘</b>Hearth</button>
+      <button data-tab="pit"><b>⚔</b>Pit</button>
+      <button data-tab="market"><b>▣</b>Market</button>
+      <button data-tab="you"><b>◈</b>You</button>
+    </nav>
+  </div>
+</body>
+</html>
