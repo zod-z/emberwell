@@ -10,54 +10,55 @@
 <div id="app">
 <header>
   <div class="who">
-    <div id="avatar" class="kin kin-pup sm"></div>
+    <div class="kin kin-pup sm"></div>
     <div>
       <div class="brand">Ember<span>well</span></div>
-      <div class="floor" id="floor">Floor 1 · slice 8</div>
+      <div class="floor" id="floor">Floor 1 · slice 9</div>
     </div>
-  </div>
-  <div class="hud">
-    <b id="rate">0/s</b>
-    <b id="gold">0</b>
-    <b id="cinder">0</b>
-    <b id="embersHud">8</b>
   </div>
   <button class="ghost" id="reset">Reset</button>
 </header>
+<div class="hud">
+  <div class="chip"><i>Gather</i><b id="rate">0/s</b></div>
+  <div class="chip gold"><i>Gold</i><b id="gold">0</b></div>
+  <div class="chip"><i>Cinder</i><b id="cinder">0</b></div>
+  <div class="chip"><i>Embers</i><b id="embersHud">0</b></div>
+</div>
 <main>
 <section class="view on" data-view="well">
   <div class="well-stage" id="well-stage">
-    <div class="smoke"></div>
     <div class="vein-title" id="veinTitle">Ember Heart</div>
     <div class="boss-hp"><i id="veinFill"></i></div>
-    <div class="vein-hp" id="veinHp">80</div>
-    <button class="heart" id="heart" aria-label="tend the heart"></button>
-    <div class="float-dmg" id="floatDmg"></div>
+    <div class="vein-hp" id="veinHp">0 / 0</div>
+    <div class="heart" id="heart"></div>
     <div class="crew" id="crew"></div>
-    <p class="whisper" id="whisper">Seat a body. The well only works if someone stands in it.</p>
+  </div>
+  <p class="rule" id="rule">Kin on the ring gather gold. The heart only breaks if you work it.</p>
+  <div class="dock">
+    <button id="collectBtn"><b>Collect</b><em id="cacheLbl">0 in the basin</em></button>
+    <button id="workBtn"><b>Work the heart</b><em id="workLbl">needs a body</em></button>
+    <button id="hatchBtn"><b>Hatch</b><em id="hatchLbl">cinder</em></button>
   </div>
 </section>
 <section class="view" data-view="hearth">
-  <div class="garden-stage">
-    <div class="hex-field" id="plots"></div>
-    <p class="whisper" id="gardenEta">The beds wait.</p>
-  </div>
+  <div class="garden-stage"><div class="hex-field" id="plots"></div></div>
+  <p class="rule" id="gardenEta">The beds wait.</p>
   <div class="seed-row" id="seedRow"></div>
 </section>
 <section class="view" data-view="pit">
   <div class="pit-stage">
-    <div class="pit-title">Other dens · rank <span id="pitRank">0</span></div>
+    <div class="vein-title">Other dens · rank <span id="pitRank">0</span></div>
     <div class="duel" id="duel"></div>
-    <button class="wide" id="pitBtn">Meet them</button>
   </div>
+  <div class="dock"><button id="pitBtn"><b>Meet them</b><em>pit kin vs their den</em></button></div>
   <div class="foes" id="foes"></div>
 </section>
 <section class="view" data-view="market">
   <div class="ease" id="ease"></div>
-  <button class="wide ember" id="dailyEmber">Morning embers</button>
+  <div class="dock"><button id="dailyEmber"><b>Morning embers</b><em>+2 once a day</em></button></div>
 </section>
 <section class="view" data-view="you">
-  <p class="whisper pad" id="youLine">Level 1</p>
+  <p class="rule pad" id="youLine">Den</p>
   <div class="cards" id="cards"></div>
 </section>
 </main>
