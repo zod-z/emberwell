@@ -69,10 +69,16 @@ main{min-height:0;position:relative;overflow:hidden}.view{display:none;height:10
 nav{display:grid;grid-template-columns:repeat(5,1fr);padding:8px 4px var(--safe);background:#080504;border-top:1px solid var(--line);z-index:40;position:relative}
 nav button{background:0;border:0;color:var(--mute);font:inherit;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:6px 2px}
 nav button.on{color:var(--ember2)}nav button em{display:block;color:#8dcf6a;font-style:normal;font-size:8px}
+.tip{margin:0 10px 6px;padding:8px 10px;border:1px solid var(--line);border-radius:12px;background:#1a1008;font-size:12px;color:var(--mute)}
+.tip b{color:var(--cream)}
+.achs{display:grid;gap:6px;padding:0 12px 12px}
+.ach{border:1px solid var(--line);border-radius:12px;padding:8px 10px;font-size:12px;color:var(--mute)}
+.ach.on{color:var(--cream);border-color:var(--gold)}
 </style></head>
 <body>
 <div id="app">
 <header><div class="who"><div id="avatar"></div><div><div class="brand">Ember<span>well</span></div><div class="floor" id="floor">Floor 1</div></div></div><button class="ghost" id="reset">Reset</button></header>
+<p class="tip" id="tip" hidden></p>
 <div class="hud"><div class="chip rate"><i>Gather</i><b id="rate">0/s</b></div><div class="chip gold"><i>Gold</i><b id="gold">0</b></div><div class="chip"><i>Cinder</i><b id="cinder">0</b></div><div class="chip ember"><i>Embers</i><b id="embersHud">0</b></div></div>
 <main>
 <section class="view on" data-view="well">
@@ -84,7 +90,7 @@ nav button.on{color:var(--ember2)}nav button em{display:block;color:#8dcf6a;font
 <section class="view" data-view="hearth"><div class="stage stage-garden"><div class="hex-field" id="plots"></div></div><p class="rule" id="gardenEta">The beds wait.</p><div class="seed" id="seedRow"></div></section>
 <section class="view" data-view="pit"><div class="stage stage-pit"><div class="title">Other dens · rank <span id="pitRank">0</span></div><div class="duel" id="duel"></div></div><div class="dock two"><button id="pitBtn"><b>Meet them</b><em>pit kin vs their den</em></button><button id="rematchBtn"><b>Rematch</b><em>1 ember</em></button></div><div class="foes" id="foes"></div></section>
 <section class="view" data-view="market"><div class="ease" id="ease"></div><div class="packs" id="packs"></div><div class="dock two"><button id="dailyEmber"><b>Morning embers</b><em>+2 once a day</em></button></div></section>
-<section class="view" data-view="you"><p class="rule" id="youLine">Den</p><div class="cards" id="cards"></div></section>
+<section class="view" data-view="you"><p class="rule" id="youLine">Den</p><div class="cards" id="cards"></div><div class="dock two"><button id="prestigeBtn"><b>Bank the well</b><em id="prestigeLbl">floor 10</em></button></div><div class="achs" id="achs"></div></section>
 </main>
 <div class="sheet" id="sheet" hidden></div><div class="toast" id="toast"></div>
 <nav><button class="on" data-tab="well">Well</button><button data-tab="hearth">Hearth<em id="navEta"></em></button><button data-tab="pit">Pit<em id="navPit"></em></button><button data-tab="market">Market</button><button data-tab="you">Den</button></nav>
