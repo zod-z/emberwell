@@ -1,0 +1,10 @@
+.stage-well{background:radial-gradient(circle at 50% 62%,#c45c12,#0b0705 70%)}
+.stage-garden{background:radial-gradient(circle at 50% 40%,#3d5a1f,#1a1408 70%)}
+.stage-pit{background:radial-gradient(circle at 50% 60%,#4a1808,#0a0504 70%)}
+.heart{background:radial-gradient(circle,#ffd166,#8a4b12)}
+.stand{background:radial-gradient(circle at 50% 20%,#f4ead8 0 12%,#c45c12 40%,#1a0c08 80%)}
+.stand.peat{background:radial-gradient(circle at 50% 20%,#e8d2b0 0 12%,#7a4a18 45%,#1a0c08 80%)}
+.stand.moth{background:radial-gradient(circle at 50% 20%,#ffd166 0 12%,#d4a017 45%,#1a0c08 80%)}
+.stand.owl{background:radial-gradient(circle at 50% 20%,#f4ead8 0 12%,#8a5a20 45%,#1a0c08 80%)}
+.hex{background:#5a3a1a}.hex.ripe{background:#7dcf5a}.hex.sprout{background:#3a5a1a}.hex.lock{background:#221c16}
+.face{background:radial-gradient(circle at 50% 20%,#f4ead8 0 12%,#c45c12 40%,#1a0c08 80%)}
