@@ -30,7 +30,7 @@ main{min-height:0;position:relative;overflow:hidden}.view{display:none;height:10
 .boss-hp i{display:block;height:100%;width:40%;background:linear-gradient(90deg,#e85d04,#ffb703)}
 .hp-lbl{position:absolute;left:0;right:0;top:38px;text-align:center;font-size:10px;color:var(--mute);z-index:3}
 .heart{position:absolute;left:50%;top:46%;width:26%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,#ffd166,#8a4b12);box-shadow:0 0 24px #e85d0466;z-index:2}
-.heart.dim{filter:grayscale(.5) brightness(.55);box-shadow:none}.heart.hit{animation:hit .25s ease}@keyframes hit{50%{transform:translate(-50%,-50%) scale(.9)}}
+.heart.dim{filter:grayscale(.5) brightness(.55);box-shadow:none}.heart.hot{box-shadow:0 0 36px #ffb703aa;filter:saturate(1.2)}.heart.hit{animation:hit .25s ease}@keyframes hit{50%{transform:translate(-50%,-50%) scale(.9)}}
 .crew{position:absolute;inset:50px 4px 6px;z-index:3;pointer-events:none}
 .seat{position:absolute;width:22%;background:0;border:0;padding:0;color:var(--cream);pointer-events:auto}
 .seat:nth-child(1){left:4%;top:2%}.seat:nth-child(2){right:4%;top:2%}.seat:nth-child(3){left:0;top:34%}.seat:nth-child(4){right:0;top:34%}
@@ -88,7 +88,7 @@ nav button.on{color:var(--ember2)}nav button em{display:block;color:#8dcf6a;font
   <div class="ups" id="ups"></div>
 </section>
 <section class="view" data-view="hearth"><div class="stage stage-garden"><div class="hex-field" id="plots"></div></div><p class="rule" id="gardenEta">The beds wait.</p><div class="seed" id="seedRow"></div></section>
-<section class="view" data-view="pit"><div class="stage stage-pit"><div class="title">Other dens · rank <span id="pitRank">0</span></div><div class="duel" id="duel"></div></div><div class="dock two"><button id="pitBtn"><b>Meet them</b><em>pit kin vs their den</em></button><button id="rematchBtn"><b>Rematch</b><em>1 ember</em></button></div><div class="foes" id="foes"></div></section>
+<section class="view" data-view="pit"><div class="stage stage-pit"><div class="title">Other dens · rank <span id="pitRank">0</span></div><div class="duel" id="duel"></div></div><div class="dock two"><button id="pitBtn"><b>Meet them</b><em>pit kin vs their den</em></button><button id="rematchBtn"><b>Rematch</b><em>1 ember</em></button></div><p class="rule" id="pitLog">No meeting yet.</p><div class="foes" id="foes"></div></section>
 <section class="view" data-view="market"><div class="ease" id="ease"></div><div class="packs" id="packs"></div><div class="dock two"><button id="dailyEmber"><b>Morning embers</b><em>+2 once a day</em></button></div></section>
 <section class="view" data-view="you"><p class="rule" id="youLine">Den</p><div class="cards" id="cards"></div><div class="dock two"><button id="prestigeBtn"><b>Bank the well</b><em id="prestigeLbl">floor 10</em></button></div><div class="achs" id="achs"></div></section>
 </main>
