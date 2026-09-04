@@ -9,11 +9,11 @@
 <body>
 <div id="app">
 <header>
-  <div class="who"><div id="avatar" class="art-pup"></div><div><div class="brand">Ember<span>well</span></div><div class="floor" id="floor">Floor 1 · slice 6</div></div></div>
+  <div class="who"><div id="avatar" class="art-pup"></div><div><div class="brand">Ember<span>well</span></div><div class="floor" id="floor">Floor 1 · slice 7</div></div></div>
   <button class="ghost" id="reset">Reset</button>
 </header>
 <div class="hud">
-  <div class="chip rate"><i id="rateLbl">Well</i><b id="rate">0/s</b></div>
+  <div class="chip rate"><i>DPS</i><b id="rate">0/s</b></div>
   <div class="chip gold" id="goldChip"><i>Gold</i><b id="gold">0</b></div>
   <div class="chip cinder" id="cinderChip"><i>Cinder</i><b id="cinder">0</b></div>
   <div class="chip ember" id="emberChip"><i>Embers</i><b id="embersHud">8</b></div>
@@ -22,50 +22,29 @@
 <section class="view on" data-view="well">
   <div class="well-stage" id="well-stage">
     <div class="bg art-well"></div>
-    <canvas id="fx"></canvas>
-    <div class="hand" id="hand">👆</div>
-    <div class="shaft-marks" id="shaftMarks"></div>
-    <div class="depth-card">
-      <div class="depth-row"><span id="depthName">Peat shaft</span><b id="depthPct">0%</b></div>
-      <div class="mini-bar"><i id="depthFill"></i></div>
-      <p class="depth-note" id="depthNote">Hands cut the shaft while gold fills.</p>
-    </div>
-    <div class="collect-card">
-      <div class="mini-bar"><i id="wellFill"></i></div>
-      <b id="wellCap">0 / 40</b>
-      <span id="wellEta">Filling</span>
-      <button class="collect-btn" id="collectWell">Collect</button>
-    </div>
+    <div class="vein-title" id="veinTitle">EMBER HEART · F1</div>
+    <div class="boss-hp"><i id="veinFill"></i></div>
+    <div class="vein-hp" id="veinHp">0 / 0</div>
+    <div class="heart" id="heart"></div>
+    <div class="float-dmg" id="floatDmg">—</div>
+    <div class="crew" id="crew"></div>
   </div>
-  <div class="gate" id="gate" hidden>
-    <p id="gateText">Plug in the shaft. Work it here or buy the cut. Kin still skim gold.</p>
-    <div class="plug-bar"><i id="plugFill"></i></div>
-    <div class="upgrades three">
-      <button class="btn" id="btnWork"></button>
-      <button class="btn" id="btnCut"></button>
-      <button class="btn ember" id="btnSkip"></button>
-    </div>
+  <div class="hatch-bar">
+    <button class="btn" id="luckBtn"></button>
+    <button class="portal" id="hatchBtn"><b id="hatchCount">0</b><span>Hatch</span></button>
+    <button class="btn ember" id="autoBtn"></button>
   </div>
-  <div class="upgrades" id="wellUps">
-    <button class="btn" id="btnWell"></button>
-    <button class="btn" id="btnHands"></button>
-  </div>
+  <div class="slots" id="slots"></div>
 </section>
 <section class="view" data-view="hearth">
-  <div class="garden-stage">
-    <div class="bg art-garden"></div>
-    <div class="hex-field" id="plots"></div>
-  </div>
+  <div class="garden-stage"><div class="bg art-garden"></div><div class="hex-field" id="plots"></div></div>
   <div class="seed-row" id="seedRow"></div>
   <div class="garden-dock">
-    <button class="dock" id="plantAll"><b>Plant empty</b><em id="plantHint">sparkgrass</em></button>
+    <button class="dock" id="plantAll"><b>Plant empty</b><em id="plantHint">spark</em></button>
     <div class="dock mid"><b id="gardenState">Hearth</b><em id="gardenEta">—</em></div>
-    <button class="dock" id="harvestAll"><b>Harvest ripe</b><em>cinder in</em></button>
+    <button class="dock" id="harvestAll"><b>Harvest ripe</b><em>cinder</em></button>
   </div>
-  <div class="upgrades">
-    <button class="btn" id="fertBtn"></button>
-    <button class="btn" id="expandBtn"></button>
-  </div>
+  <div class="upgrades"><button class="btn" id="fertBtn"></button><button class="btn" id="expandBtn"></button></div>
 </section>
 <section class="view" data-view="pit">
   <div class="pit-stage">
@@ -75,10 +54,7 @@
   </div>
   <div class="stat-strip" id="pitStrip"></div>
   <div class="foes" id="foes"></div>
-  <div class="upgrades">
-    <button class="btn ember" id="pitBtn"></button>
-    <button class="btn" id="rematchBtn"></button>
-  </div>
+  <div class="upgrades"><button class="btn ember" id="pitBtn"></button><button class="btn" id="rematchBtn"></button></div>
 </section>
 <section class="view" data-view="market">
   <div class="shop-tabs" id="shopTabs">
@@ -88,22 +64,17 @@
   </div>
   <div class="shop-pane on" data-shop="ease"><div class="ease" id="ease"></div></div>
   <div class="shop-pane" data-shop="packs"><div class="packs" id="packs"></div></div>
-  <div class="shop-pane" data-shop="embers">
-    <button class="btn ember" id="dailyEmber"><strong>Claim daily</strong><em>+2 embers</em></button>
-  </div>
+  <div class="shop-pane" data-shop="embers"><button class="btn ember" id="dailyEmber"><strong>Claim daily</strong><em>+2 embers</em></button></div>
 </section>
 <section class="view" data-view="you">
-  <article class="profile">
-    <div class="art-pup face-art"></div>
-    <div><h3>Denkeeper</h3><p>Level <b id="youLv">1</b> · <span id="youXp">0 / 40 xp</span></p><div class="mini-bar"><i id="xpBar"></i></div></div>
-  </article>
+  <article class="profile"><div class="art-pup face-art"></div><div><h3>Denkeeper</h3><p>Level <b id="youLv">1</b> · <span id="youXp">0 / 40 xp</span></p><div class="mini-bar"><i id="xpBar"></i></div></div></article>
   <dl class="attrs" id="attrs"></dl>
-  <div class="den-top"><button class="btn ember" id="hatchBtn"></button></div>
   <div class="cards" id="cards"></div>
 </section>
 </main>
 <p class="log" id="log"></p>
 <div class="toast" id="toast"></div>
+<div class="modal" id="modal" hidden></div>
 <nav>
   <button class="on" data-tab="well"><b>◎</b>Well</button>
   <button data-tab="hearth"><b>⚘</b>Hearth<em id="navEta"></em></button>
