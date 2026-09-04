@@ -9,78 +9,66 @@
 <body>
 <div id="app">
 <header>
-  <div class="who"><div id="avatar" class="art-pup"></div><div><div class="brand">Ember<span>well</span></div><div class="floor" id="floor">Floor 1 · slice 7</div></div></div>
+  <div class="who">
+    <div id="avatar" class="kin kin-pup sm"></div>
+    <div>
+      <div class="brand">Ember<span>well</span></div>
+      <div class="floor" id="floor">Floor 1 · slice 8</div>
+    </div>
+  </div>
+  <div class="hud">
+    <b id="rate">0/s</b>
+    <b id="gold">0</b>
+    <b id="cinder">0</b>
+    <b id="embersHud">8</b>
+  </div>
   <button class="ghost" id="reset">Reset</button>
 </header>
-<div class="hud">
-  <div class="chip rate"><i>DPS</i><b id="rate">0/s</b></div>
-  <div class="chip gold" id="goldChip"><i>Gold</i><b id="gold">0</b></div>
-  <div class="chip cinder" id="cinderChip"><i>Cinder</i><b id="cinder">0</b></div>
-  <div class="chip ember" id="emberChip"><i>Embers</i><b id="embersHud">8</b></div>
-</div>
 <main>
 <section class="view on" data-view="well">
   <div class="well-stage" id="well-stage">
-    <div class="bg art-well"></div>
-    <div class="vein-title" id="veinTitle">EMBER HEART · F1</div>
+    <div class="smoke"></div>
+    <div class="vein-title" id="veinTitle">Ember Heart</div>
     <div class="boss-hp"><i id="veinFill"></i></div>
-    <div class="vein-hp" id="veinHp">0 / 0</div>
-    <div class="heart" id="heart"></div>
-    <div class="float-dmg" id="floatDmg">—</div>
+    <div class="vein-hp" id="veinHp">80</div>
+    <button class="heart" id="heart" aria-label="tend the heart"></button>
+    <div class="float-dmg" id="floatDmg"></div>
     <div class="crew" id="crew"></div>
+    <p class="whisper" id="whisper">Seat a body. The well only works if someone stands in it.</p>
   </div>
-  <div class="hatch-bar">
-    <button class="btn" id="luckBtn"></button>
-    <button class="portal" id="hatchBtn"><b id="hatchCount">0</b><span>Hatch</span></button>
-    <button class="btn ember" id="autoBtn"></button>
-  </div>
-  <div class="slots" id="slots"></div>
 </section>
 <section class="view" data-view="hearth">
-  <div class="garden-stage"><div class="bg art-garden"></div><div class="hex-field" id="plots"></div></div>
-  <div class="seed-row" id="seedRow"></div>
-  <div class="garden-dock">
-    <button class="dock" id="plantAll"><b>Plant empty</b><em id="plantHint">spark</em></button>
-    <div class="dock mid"><b id="gardenState">Hearth</b><em id="gardenEta">—</em></div>
-    <button class="dock" id="harvestAll"><b>Harvest ripe</b><em>cinder</em></button>
+  <div class="garden-stage">
+    <div class="hex-field" id="plots"></div>
+    <p class="whisper" id="gardenEta">The beds wait.</p>
   </div>
-  <div class="upgrades"><button class="btn" id="fertBtn"></button><button class="btn" id="expandBtn"></button></div>
+  <div class="seed-row" id="seedRow"></div>
 </section>
 <section class="view" data-view="pit">
   <div class="pit-stage">
-    <div class="bg art-pit"></div>
-    <div class="pit-title">DEN DUEL · RANK <span id="pitRank">0</span></div>
+    <div class="pit-title">Other dens · rank <span id="pitRank">0</span></div>
     <div class="duel" id="duel"></div>
+    <button class="wide" id="pitBtn">Meet them</button>
   </div>
-  <div class="stat-strip" id="pitStrip"></div>
   <div class="foes" id="foes"></div>
-  <div class="upgrades"><button class="btn ember" id="pitBtn"></button><button class="btn" id="rematchBtn"></button></div>
 </section>
 <section class="view" data-view="market">
-  <div class="shop-tabs" id="shopTabs">
-    <b class="on" data-shop="ease">Convenience</b>
-    <b data-shop="packs">Packs</b>
-    <b data-shop="embers">Embers</b>
-  </div>
-  <div class="shop-pane on" data-shop="ease"><div class="ease" id="ease"></div></div>
-  <div class="shop-pane" data-shop="packs"><div class="packs" id="packs"></div></div>
-  <div class="shop-pane" data-shop="embers"><button class="btn ember" id="dailyEmber"><strong>Claim daily</strong><em>+2 embers</em></button></div>
+  <div class="ease" id="ease"></div>
+  <button class="wide ember" id="dailyEmber">Morning embers</button>
 </section>
 <section class="view" data-view="you">
-  <article class="profile"><div class="art-pup face-art"></div><div><h3>Denkeeper</h3><p>Level <b id="youLv">1</b> · <span id="youXp">0 / 40 xp</span></p><div class="mini-bar"><i id="xpBar"></i></div></div></article>
-  <dl class="attrs" id="attrs"></dl>
+  <p class="whisper pad" id="youLine">Level 1</p>
   <div class="cards" id="cards"></div>
 </section>
 </main>
-<p class="log" id="log"></p>
+<div class="sheet" id="sheet" hidden></div>
 <div class="toast" id="toast"></div>
-<div class="modal" id="modal" hidden></div>
 <nav>
-  <button class="on" data-tab="well"><b>◎</b>Well</button>
-  <button data-tab="hearth"><b>⚘</b>Hearth<em id="navEta"></em></button>
-  <button data-tab="pit"><b>⚔</b>Pit<em id="navPit"></em></button>
-  <button data-tab="market"><b>▣</b>Market</button>
-  <button data-tab="you"><b>◈</b>You</button>
+  <button class="on" data-tab="well">Well</button>
+  <button data-tab="hearth">Hearth<em id="navEta"></em></button>
+  <button data-tab="pit">Pit<em id="navPit"></em></button>
+  <button data-tab="market">Market</button>
+  <button data-tab="you">Den</button>
 </nav>
 </div>
 <script src="js/game.js"></script>
